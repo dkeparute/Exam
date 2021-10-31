@@ -17,6 +17,7 @@ function ExamElement({ examElement }) {
                 <span>Born: </span>
                 <div>{examElement.born.slice(0, 10)}</div>
             </div>
+            <button>Edit</button>
         </div>
     );
 

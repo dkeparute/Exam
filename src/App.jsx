@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ExamList from "./Components/ExamList";
+import ExamModal from "./Components/ExamModal";
 import ExamNew from "./Components/ExamNew";
 
 function App() {
@@ -28,8 +29,9 @@ function App() {
 
   return (
     <div className='turtai'>
-      <ExamNew create={create}/>
+      <ExamNew create={create} />
       <ExamList examList={examList} />
+      <ExamModal />
     </div>
   );
 }

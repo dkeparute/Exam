@@ -16,6 +16,12 @@ function ExamNew({ create }) {
 
     const handleCreate = () => {
         create(inputs);
+        setInputs({
+            name: '',
+            type: '',
+            weight: '',
+            born: ''
+        })
     }
 
     return (

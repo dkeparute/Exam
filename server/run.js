@@ -50,6 +50,7 @@ app.get('/exam', (req, res) => {
     res.send(results);
   })
 })
+// Perduodame DB duomenis
 app.post('/exam', (req, res) => {
   const sql = `
   insert into exam
@@ -63,6 +64,28 @@ app.post('/exam', (req, res) => {
     res.send(results);
   })
 })
+// Koreaguojame duomenis ir perduodame i DB
+
+app.put('/exam/:id', (req, res) => {
+  const sql = `
+      UPDATE exam
+      SET name = ?, type = ?, weight = ?, born = ?
+      WHERE id = ?
+  `;
+  con.query(sql, [
+      req.body.name,
+      req.body.type,
+      req.body.weight,
+      req.body.born,
+      req.params.id
+  ], (err, results) => {
+      if (err) {
+          throw err;
+      }
+      res.send(results);
+  })
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

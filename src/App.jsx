@@ -34,7 +34,6 @@ function App() {
         console.log(res.data);
       })
   }
-
   const modal = (examElement) => {
     setShowModal(true);
     setModalElement(examElement);
@@ -45,11 +44,12 @@ function App() {
   }
 
   const edit = (examElement, id) => {
-    axios.put('http://localhost:3003/exam'+id, examElement)
-    .then(res => {
-      setLastUpdate(Date.now())
-      console.log(res.data);
-    })
+    setShowModal(false);
+    axios.put('http://localhost:3003/exam/' + id, examElement)
+      .then(res => {
+        setLastUpdate(Date.now())
+        console.log(res.data);
+      })
   }
 
   return (

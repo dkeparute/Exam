@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ExamModal({ showModal, hide, modalElement }) {
+function ExamModal({ showModal, hide, modalElement, edit }) {
 
     const [inputs, setInputs] = useState({
         name: '',
@@ -8,6 +8,12 @@ function ExamModal({ showModal, hide, modalElement }) {
         weight: '',
         born: ''
     })
+
+    const control = (e, what) => {
+        const inputsCopy = { ...inputs };
+        inputsCopy[what] = e.target.value;
+        setInputs(inputsCopy);
+    }
 
     useEffect(() => {
         setInputs({
@@ -18,13 +24,14 @@ function ExamModal({ showModal, hide, modalElement }) {
         })
     }, [modalElement])
 
-
-    const control = (e, what) => {
-        const inputsCopy = { ...inputs };
-        inputsCopy[what] = e.target.value;
-        setInputs(inputsCopy);
+    const handleEdit = () => {
+        edit({
+            name: inputs.name,
+            type: inputs.type,
+            weight: inputs.weight,
+            born: inputs.born
+        }, modalElement.id)
     }
-
 
 
     return (
@@ -42,7 +49,7 @@ function ExamModal({ showModal, hide, modalElement }) {
                 <div className='nauja-vel'>
                     <span>Edit born: </span> <input type="date" value={inputs.born} onChange={(e) => control(e, 'born')} />
                 </div>
-                <button onClick={save}>Save</button>
+                <button onClick={handleEdit}>Save</button>
                 <button onClick={hide}>Cancel</button>
             </div>
         </div>

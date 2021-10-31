@@ -10,6 +10,8 @@ function App() {
 
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
       .then(res => {
@@ -26,12 +28,16 @@ function App() {
       })
   }
 
+  const modal = () => {
+    setShowModal(true);
+  }
+
 
   return (
     <div className='turtai'>
       <ExamNew create={create} />
-      <ExamList examList={examList} />
-      <ExamModal />
+      <ExamList examList={examList} modal={modal} />
+      <ExamModal showModal={showModal} />
     </div>
   );
 }

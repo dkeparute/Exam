@@ -107,4 +107,14 @@
         font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
             sans-serif;
     }
+    .modal {
+        position: absolute;
+        background-image: url("./img/img2.jpg");
+        background-size: cover;
+        border-radius: 10px;
+        left: 23vw;
+        width: 70vw;
+        height: 600px;
+        top: 10vw;
+    }
 }

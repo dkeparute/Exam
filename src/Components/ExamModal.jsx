@@ -1,6 +1,6 @@
-function ExamModal() {
+function ExamModal({ showModal }) {
     return (
-        <div className='modal'>
+        <div className='modal' style={{display: showModal ? 'flex' : 'none'}}>
         </div>
     );
 }

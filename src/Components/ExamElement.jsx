@@ -3,7 +3,7 @@ function ExamElement({ examElement, modal }) {
 
 
     const showEdit = () => {
-        modal(true)
+        modal(examElement)
     }
 
     return (

@@ -12,6 +12,13 @@ function App() {
 
   const [showModal, setShowModal] = useState(false);
 
+  const [modalElement, setModalElement] = useState({
+    name: '',
+    type: '',
+    weight: '',
+    born: ''
+  });
+
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
       .then(res => {
@@ -28,16 +35,28 @@ function App() {
       })
   }
 
-  const modal = () => {
+  const modal = (examElement) => {
     setShowModal(true);
+    setModalElement(examElement);
   }
 
+  const hide = () => {
+    setShowModal(false);
+  }
+
+  const edit = (examElement, id) => {
+    axios.put('http://localhost:3003/exam'+id, examElement)
+    .then(res => {
+      setLastUpdate(Date.now())
+      console.log(res.data);
+    })
+  }
 
   return (
     <div className='turtai'>
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
-      <ExamModal showModal={showModal} />
+      <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} />
     </div>
   );
 }

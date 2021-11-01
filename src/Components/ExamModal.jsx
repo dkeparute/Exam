@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ExamModal({ showModal, hide, modalElement, edit }) {
+function ExamModal({ showModal, hide, modalElement, edit, remove}) {
 
     const [inputs, setInputs] = useState({
         name: '',
@@ -51,6 +51,7 @@ function ExamModal({ showModal, hide, modalElement, edit }) {
                 </div>
                 <button onClick={handleEdit}>Save</button>
                 <button onClick={hide}>Cancel</button>
+                <button onClick={() => remove(modalElement.id)}>Delete</button>
             </div>
         </div>
 

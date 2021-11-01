@@ -68,24 +68,36 @@ app.post('/exam', (req, res) => {
 
 app.put('/exam/:id', (req, res) => {
   const sql = `
-      UPDATE exam
-      SET name = ?, type = ?, weight = ?, born = ?
-      WHERE id = ?
+      update exam
+      set name = ?, type = ?, weight = ?, born = ?
+      where id = ?
   `;
   con.query(sql, [
-      req.body.name,
-      req.body.type,
-      req.body.weight,
-      req.body.born,
-      req.params.id
+    req.body.name,
+    req.body.type,
+    req.body.weight,
+    req.body.born,
+    req.params.id
   ], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+// trinti gyvuna
+app.delete('/exam/:id', (req, res) => {
+  const sql = `
+      delete from exam
+      where id = ?
+      `;
+  con.query(sql, [req.params.id], (err, result) => {
       if (err) {
           throw err;
       }
-      res.send(results);
+      res.send(result);
   })
 })
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

@@ -52,11 +52,20 @@ function App() {
       })
   }
 
+  const remove = (id) => {
+    setShowModal(false);
+    axios.delete('http://localhost:3003/exam/' + id)
+      .then(res => {
+        setLastUpdate(Date.now())
+        console.log(res.data);
+      })
+  }
+
   return (
     <div className='turtai'>
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
-      <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} />
+      <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}/>
     </div>
   );
 }

@@ -21,6 +21,7 @@ function App() {
   });
 
   const [types, setTypes] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
@@ -37,6 +38,16 @@ function App() {
         console.log(res.data);
       })
   }, [lastUpdate])
+
+  useEffect(() => {
+    if (filter) {
+      axios.get('http://localhost:3003/exam-filter/' + filter)
+        .then(res => {
+          setExamList(res.data);
+          console.log(res.data);
+        })
+    }
+  }, [filter])
 
   const create = examElement => {
     axios.post('http://localhost:3003/exam', examElement)
@@ -77,7 +88,7 @@ function App() {
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav types={types} />
+      <ExamNav types={types} setFilter={setFilter} />
     </div>
   );
 }

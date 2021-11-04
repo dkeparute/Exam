@@ -113,6 +113,23 @@ app.get('/exam-type', (req, res) => {
     res.send(results);
   })
 })
+
+// Rodo tam tikro tipo rezultatus
+
+app.get('/exam-filter/:type', (req, res) => {
+  const sql = `
+  select *
+  from exam
+  where type = ?
+  `;
+  con.query(sql, [req.params.type], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

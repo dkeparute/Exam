@@ -1,4 +1,8 @@
-function ExamNav({types}) {
+function ExamNav({types, setFilter}) {
+
+
+
+    
     return (
         <div className='nav'>
             <span>Filter by type: </span>

@@ -99,6 +99,20 @@ app.delete('/exam/:id', (req, res) => {
   })
 })
 
+// Randa visus skirtingus tipus
+
+app.get('/exam-type', (req, res) => {
+  const sql = `
+  select distinct type
+  from exam
+  `;
+  con.query(sql, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

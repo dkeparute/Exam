@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ExamList from "./Components/ExamList";
 import ExamModal from "./Components/ExamModal";
+import ExamNav from "./Components/ExamNav";
 import ExamNew from "./Components/ExamNew";
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
     weight: '',
     born: ''
   });
+
+  const [type, setType] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
@@ -65,7 +68,8 @@ function App() {
     <div className='turtai'>
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
-      <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove}/>
+      <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
+      <ExamNav />
     </div>
   );
 }

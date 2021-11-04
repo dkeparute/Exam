@@ -3,10 +3,8 @@
     justify-content: center;
     justify-items: center;
     flex-wrap: wrap;
-    background-image: url("./img/img3.jpg");
     border-radius: 10px;
-    background-size: cover;
-    background-color: #585252;
+    background-color: #eac8d3;
     margin: 100px;
     .turtai-list {
         display: flex;
@@ -20,12 +18,10 @@
             padding: 20px;
             text-transform: uppercase;
             font-weight: bold;
-            color:  #a55a86;
+            color: #a55a86;
         }
     }
     .vienas-turtas {
-         background-image: url("./img/img1.jpg");
-        background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -118,7 +114,7 @@
         width: 45vw;
         height: 600px;
 
-           .btn {
+        .btn {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -136,14 +132,10 @@
             background-repeat: no-repeat;
             background-size: cover;
             .nauja-vel {
-        
                 margin-top: 10px;
-                margin-bottom: 10px;
                 margin-bottom: 30px;
                 .inputs {
-                 
                     margin-top: 10px;
-                    margin-bottom: 10px;
                     margin-bottom: 30px;
                 }
                 input {
@@ -153,8 +145,6 @@
                     color: #eac8d3;
                 }
             }
-          
         }
     }
-
 }

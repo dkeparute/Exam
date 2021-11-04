@@ -19,9 +19,30 @@ function App() {
     weight: '',
     born: ''
   });
-
   const [types, setTypes] = useState([]);
-  const [filter, setFilter] = useState('');
+  const [filterBy, setFilterBy] = useState('');
+  const [searchBy, setSearchBy] = useState('');
+
+  useEffect(() => {
+      if (filterBy) {
+      axios.get('http://localhost:3003/exam-filter/'+filterBy)
+          .then(res => {
+            setExamList(res.data);
+              console.log(res.data);
+          })
+      }
+  }, [filterBy])
+
+
+  useEffect(() => {
+      if (searchBy) {
+      axios.get('http://localhost:3003/exam-name/?s='+searchBy)
+          .then(res => {
+            setExamList(res.data);
+              console.log(res.data);
+          })
+      }
+  }, [searchBy])
 
   const reset = () => {
     setLastUpdate(Date.now());
@@ -42,16 +63,6 @@ function App() {
         console.log(res.data);
       })
   }, [lastUpdate])
-
-  useEffect(() => {
-    if (filter) {
-      axios.get('http://localhost:3003/exam-filter/' + filter)
-        .then(res => {
-          setExamList(res.data);
-          console.log(res.data);
-        })
-    }
-  }, [filter])
 
   const create = examElement => {
     axios.post('http://localhost:3003/exam', examElement)
@@ -92,7 +103,7 @@ function App() {
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav types={types} setFilter={setFilter} reset={reset} />
+      <ExamNav types={types} search={setSearchBy} filter={setFilterBy} reset={reset} />
     </div>
   );
 }

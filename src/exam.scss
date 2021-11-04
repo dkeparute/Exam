@@ -7,6 +7,7 @@
     border-radius: 10px;
     background-size: cover;
     background-color: #585252;
+    margin: 100px;
     .turtai-list {
         display: flex;
         justify-content: center;
@@ -19,11 +20,11 @@
             padding: 20px;
             text-transform: uppercase;
             font-weight: bold;
-            color: #eac8d3;
+            color:  #a55a86;
         }
     }
     .vienas-turtas {
-        background-image: url("./img/img1.jpg");
+         background-image: url("./img/img1.jpg");
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -57,6 +58,7 @@
         }
     }
     .inputs-turtas {
+        margin: 30px;
         display: flex;
         justify-content: center;
         justify-items: center;
@@ -113,9 +115,15 @@
         background-size: cover;
         border-radius: 10px;
         left: 30vw;
-        width: 57vw;
+        width: 45vw;
         height: 600px;
-        top: 10vw;
+
+           .btn {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            flex-basis: auto;
+        }
         .nauja {
             display: flex;
             justify-content: center;
@@ -145,6 +153,8 @@
                     color: #eac8d3;
                 }
             }
+          
         }
     }
+
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function ExamModal({ showModal, hide, modalElement, edit, remove}) {
+function ExamModal({ showModal, hide, modalElement, edit, remove }) {
 
     const [inputs, setInputs] = useState({
         name: '',
@@ -35,7 +35,7 @@ function ExamModal({ showModal, hide, modalElement, edit, remove}) {
 
 
     return (
-        <div className='modal' style={{ display: showModal ? 'flex' : 'none' }}>
+        <div className='modal' style={{ display: showModal ? 'flex' : 'none', top: window.scrollY + 200 + 'px' }}>
             <div className='nauja'>
                 <div className='nauja-vel'>
                     <span>Edit name: </span> <input type="text" value={inputs.name} onChange={(e) => control(e, 'name')} />
@@ -49,9 +49,12 @@ function ExamModal({ showModal, hide, modalElement, edit, remove}) {
                 <div className='nauja-vel'>
                     <span>Edit born: </span> <input type="date" value={inputs.born} onChange={(e) => control(e, 'born')} />
                 </div>
-                <button onClick={handleEdit}>Save</button>
-                <button onClick={hide}>Cancel</button>
-                <button onClick={() => remove(modalElement.id)}>Delete</button>
+                <div className='btn'>
+                    <button onClick={handleEdit}>Save</button>
+                    <button onClick={hide}>Cancel</button>
+                    <button onClick={() => remove(modalElement.id)}>Delete</button>
+                </div>
+
             </div>
         </div>
 

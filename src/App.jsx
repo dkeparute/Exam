@@ -23,6 +23,10 @@ function App() {
   const [types, setTypes] = useState([]);
   const [filter, setFilter] = useState('');
 
+  const reset = () => {
+    setLastUpdate(Date.now());
+  }
+
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
       .then(res => {
@@ -52,7 +56,7 @@ function App() {
   const create = examElement => {
     axios.post('http://localhost:3003/exam', examElement)
       .then(res => {
-        setLastUpdate(Date.now())
+        setLastUpdate(Date.now());
         console.log(res.data);
       })
   }
@@ -88,7 +92,7 @@ function App() {
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav types={types} setFilter={setFilter} />
+      <ExamNav types={types} setFilter={setFilter} reset={reset} />
     </div>
   );
 }

@@ -9,6 +9,10 @@ const selectFilter = e => {
     setFilter(e.target.value);
 }
 
+const resetHandler = () => {
+    reset();
+    setFilterValue('');
+}
 
     return (
         <div className='nav'>
@@ -17,7 +21,7 @@ const selectFilter = e => {
                 {types.map(t => <option key={t.type} value={t.type}>{t.type}</option>)}
                 <option value="">Select </option>
             </select>
-            <button onClick={reset}>Reset</button>
+            <button onClick={resetHandler}>Reset</button>
         </div>
         
     );

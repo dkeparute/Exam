@@ -20,12 +20,20 @@ function App() {
     born: ''
   });
 
-  const [type, setType] = useState('');
+  const [types, setTypes] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
       .then(res => {
         setExamList(res.data);
+        console.log(res.data);
+      })
+  }, [lastUpdate])
+
+  useEffect(() => {
+    axios.get('http://localhost:3003/exam-type')
+      .then(res => {
+        setTypes(res.data);
         console.log(res.data);
       })
   }, [lastUpdate])
@@ -69,7 +77,7 @@ function App() {
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav />
+      <ExamNav types={types} />
     </div>
   );
 }

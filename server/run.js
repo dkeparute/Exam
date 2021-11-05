@@ -136,10 +136,10 @@ app.get('/exam-name', (req, res) => {
   const sql = `
   select *
   from exam
-  where name like?
+  where name like ?
   `;
   console.log(req.query.s);
-  con.query(sql, [req.query.s], (err, results) => {
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
     if (err) {
       throw err;
     }

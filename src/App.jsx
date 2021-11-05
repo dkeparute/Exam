@@ -18,7 +18,18 @@ function App() {
   });
   const [types, setTypes] = useState([]);
   const [filterBy, setFilterBy] = useState('');
-  
+  const [searchBy, setSearchBy] = useState('');
+
+  useEffect(() => {
+    if (searchBy) {
+      axios.get('http://localhost:3003/exam-name/?s=' + searchBy)
+        .then(res => {
+          setExamList(res.data);
+          console.log(res.data);
+        })
+    }
+  }, [searchBy])
+
   useEffect(() => {
     if (filterBy) {
       axios.get('http://localhost:3003/exam-filter/' + filterBy)
@@ -80,7 +91,7 @@ function App() {
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav types={types} filter={setFilterBy} reset={reset} />
+      <ExamNav types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
     </div>
   );
 }

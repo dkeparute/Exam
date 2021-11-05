@@ -1,21 +1,16 @@
 import { useState } from "react";
 
-function ExamNav({ types, filter, reset, search }) {
+function ExamNav({ types, filter, reset}) {
 
     const [filterValue, setFilterValue] = useState('');
-    const [searchValue, setSearchValue] = useState('');
+    
 
     const selectFilter = e => {
         setFilterValue(e.target.value);
         filter(e.target.value)
     }
 
-    const handleSearchValue = e => {
-        setSearchValue(e.target.value);
-        search(e.target.value)
-    }
-
-    const resetHandler = () => {
+     const resetHandler = () => {
         reset();
         setFilterValue('');
     }
@@ -28,11 +23,7 @@ function ExamNav({ types, filter, reset, search }) {
                 {types.map(t => <option key={t.type} value={t.type}>{t.type}</option>)}
                 <option value="">Select </option>
             </select>
-            <div>
-                <span>Search: </span>
-                <input onChange={handleSearchValue} value={searchValue}/>
-            </div>
-            <button onClick={resetHandler}>Reset</button>
+              <button onClick={resetHandler}>Reset</button>
         </div>
 
     );

@@ -130,26 +130,6 @@ app.get('/exam-filter/:type', (req, res) => {
   })
 })
 
-// paieska pagal varda
-// SELECT column1, column2, ...
-// FROM table_name
-// WHERE columnN LIKE pattern;
-
-app.get('/exam-name', (req, res) => {
-  const sql = `
-      SELECT *
-      FROM exam
-      WHERE name LIKE ?
-  `;
-  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
-      if (err) {
-          throw err;
-      }
-      res.send(results);
-  })
-})
-
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

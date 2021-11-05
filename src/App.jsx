@@ -8,11 +8,8 @@ import ExamNew from "./Components/ExamNew";
 function App() {
 
   const [examList, setExamList] = useState([]);
-
   const [lastUpdate, setLastUpdate] = useState(Date.now());
-
   const [showModal, setShowModal] = useState(false);
-
   const [modalElement, setModalElement] = useState({
     name: '',
     type: '',
@@ -21,30 +18,16 @@ function App() {
   });
   const [types, setTypes] = useState([]);
   const [filterBy, setFilterBy] = useState('');
-
+  
   useEffect(() => {
-      if (filterBy) {
-      axios.get('http://localhost:3003/exam-filter/'+filterBy)
-          .then(res => {
-            setExamList(res.data);
-              console.log(res.data);
-          })
-      }
+    if (filterBy) {
+      axios.get('http://localhost:3003/exam-filter/' + filterBy)
+        .then(res => {
+          setExamList(res.data);
+          console.log(res.data);
+        })
+    }
   }, [filterBy])
-
-
-  const reset = () => {
-    setLastUpdate(Date.now());
-  }
-
-  useEffect(() => {
-    axios.get('http://localhost:3003/exam')
-      .then(res => {
-        setExamList(res.data);
-        console.log(res.data);
-      })
-  }, [lastUpdate])
-
   useEffect(() => {
     axios.get('http://localhost:3003/exam-type')
       .then(res => {
@@ -52,7 +35,16 @@ function App() {
         console.log(res.data);
       })
   }, [lastUpdate])
-
+  const reset = () => {
+    setLastUpdate(Date.now());
+  }
+  useEffect(() => {
+    axios.get('http://localhost:3003/exam')
+      .then(res => {
+        setExamList(res.data);
+        console.log(res.data);
+      })
+  }, [lastUpdate])
   const create = examElement => {
     axios.post('http://localhost:3003/exam', examElement)
       .then(res => {
@@ -64,11 +56,9 @@ function App() {
     setShowModal(true);
     setModalElement(examElement);
   }
-
   const hide = () => {
     setShowModal(false);
   }
-
   const edit = (examElement, id) => {
     setShowModal(false);
     axios.put('http://localhost:3003/exam/' + id, examElement)
@@ -77,7 +67,6 @@ function App() {
         console.log(res.data);
       })
   }
-
   const remove = (id) => {
     setShowModal(false);
     axios.delete('http://localhost:3003/exam/' + id)
@@ -86,7 +75,6 @@ function App() {
         console.log(res.data);
       })
   }
-
   return (
     <div className='turtai'>
       <ExamNew create={create} />

@@ -116,13 +116,30 @@ app.get('/exam-type', (req, res) => {
 
 // Rodo tam tikro tipo rezultatus
 
-app.get('/exam-filter/:type', (req, res) => {
+app.get('/exam-filter/:t', (req, res) => {
   const sql = `
   select *
   from exam
   where type = ?
   `;
-  con.query(sql, [req.params.type], (err, results) => {
+  console.log(req.query.s);
+  con.query(sql, [req.params.t], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+// Paieska pagal varda 
+
+app.get('/exam-name', (req, res) => {
+  const sql = `
+  select *
+  from exam
+  where name like?
+  `;
+  console.log(req.query.s);
+  con.query(sql, [req.query.s], (err, results) => {
     if (err) {
       throw err;
     }

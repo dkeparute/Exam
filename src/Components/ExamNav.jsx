@@ -23,6 +23,10 @@ function ExamNav({ types, filter, reset}) {
                 {types.map(t => <option key={t.type} value={t.type}>{t.type}</option>)}
                 <option value="">Select </option>
             </select>
+            <div className='belekas'>  
+            <span>Search item by name: </span>
+            <input/>
+            </div>
               <button onClick={resetHandler}>Reset</button>
         </div>
 

@@ -4,6 +4,7 @@ import ExamList from "./Components/ExamList";
 import ExamModal from "./Components/ExamModal";
 import ExamNav from "./Components/ExamNav";
 import ExamNew from "./Components/ExamNew";
+import examSort from "./Common/examSort";
 
 function App() {
 
@@ -19,14 +20,18 @@ function App() {
   const [types, setTypes] = useState([]);
   const [filterBy, setFilterBy] = useState('');
   const [searchBy, setSearchBy] = useState('');
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState(' ');
 
   useEffect(() => {
     if (sort) {
-      
- 
+      axios.get('http://localhost:3003/exam')
+        .then(res => {
+          setExamList(examSort((res.data), sort));
+          console.log(res.data);
+        })
     }
   }, [sort])
+
 
   useEffect(() => {
     if (searchBy) {
@@ -96,10 +101,10 @@ function App() {
   }
   return (
     <div className='turtai'>
-      <ExamNew create={create} sort={setSort} />
+      <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+      <ExamNav sort={setSort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
     </div>
   );
 }

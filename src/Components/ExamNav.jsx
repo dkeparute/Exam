@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ExamNav({ types, filter, reset, search, sort }) {
+function ExamNav({ types, filter, reset, search, sort}) {
 
     const [filterValue, setFilterValue] = useState('');
     const [searchValue, setSearchValue] = useState('');
@@ -35,12 +35,12 @@ function ExamNav({ types, filter, reset, search, sort }) {
             </select>
             <div className='belekas'>
                 <span>Sort by: </span>
-                <select onChnage={selectSort} value={sortValue} >
+                <select onChange={selectSort} value={sortValue} >
                     <option value="">Select </option>
-                    <option value="">By name ASC </option>
-                    <option value="">By name DESC </option>
-                    <option value="">By weight ASC </option>
-                    <option value="">By weight DESC </option>
+                    <option value="name_asc">By name ASC </option>
+                    <option value="name_desc">By name DESC </option>
+                    <option value="weight_asc">By weight ASC </option>
+                    <option value="weight_desc">By weight DESC </option>
                 </select>
             </div>
             <div className='belekas'>

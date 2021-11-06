@@ -1,7 +1,7 @@
-function examSort(state, sort) {
+function examSort(state, by) {
     const copy = state.slice();
 
-    switch (sort) {
+    switch (by) {
         case 'name_asc':
             copy.sort(function (a, b) {
                 var nameA = a.name.toUpperCase(); // ignore upper and lowercase

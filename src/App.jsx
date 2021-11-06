@@ -24,14 +24,9 @@ function App() {
 
   useEffect(() => {
     if (sort) {
-      axios.get('http://localhost:3003/exam')
-        .then(res => {
-          setExamList(examSort((res.data), sort));
-          console.log(res.data);
-        })
+        setExamList(examSort(examList, sort));
     }
-  }, [sort])
-
+}, [sort])
 
   useEffect(() => {
     if (searchBy) {

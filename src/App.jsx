@@ -19,6 +19,14 @@ function App() {
   const [types, setTypes] = useState([]);
   const [filterBy, setFilterBy] = useState('');
   const [searchBy, setSearchBy] = useState('');
+  const [sort, setSort] = useState('');
+
+  useEffect(() => {
+    if (sort) {
+      
+ 
+    }
+  }, [sort])
 
   useEffect(() => {
     if (searchBy) {
@@ -88,7 +96,7 @@ function App() {
   }
   return (
     <div className='turtai'>
-      <ExamNew create={create} />
+      <ExamNew create={create} sort={setSort} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
       <ExamNav types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />

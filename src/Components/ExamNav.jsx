@@ -9,7 +9,7 @@ function ExamNav({ types, filter, reset, search, sort}) {
     const selectSort = e => {
         setSortValue(e.target.value);
         sort(e.target.value);
-        
+
     }
 
     const selectFilter = e => {
@@ -20,6 +20,9 @@ function ExamNav({ types, filter, reset, search, sort}) {
     const resetHandler = () => {
         reset();
         setFilterValue('');
+        setSearchValue('');
+        setSortValue('');
+        sort('');
     }
     const handleSearchValue = e => {
         setSearchValue(e.target.value);

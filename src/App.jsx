@@ -5,6 +5,7 @@ import ExamModal from "./Components/ExamModal";
 import ExamNav from "./Components/ExamNav";
 import ExamNew from "./Components/ExamNew";
 import examSort from "./Common/examSort";
+import ExamStats from "./Components/ExamStats";
 
 function App() {
 
@@ -99,6 +100,7 @@ function App() {
   }
   return (
     <div className='turtai'>
+      <ExamStats />
       <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />

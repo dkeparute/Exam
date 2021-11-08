@@ -47,8 +47,8 @@ function ExamNav({ types, filter, reset, search, sort}) {
                 </select>
             </div>
             <div className='belekas'>
-                <span>Search item by name: </span>
-                <input onChange={handleSearchValue} value={searchValue} />
+                <span>Search by name: </span>
+                <input onChange={handleSearchValue} value={searchValue} placeholder="insert text"/>
             </div>
             <button onClick={resetHandler}>Reset</button>
         </div>

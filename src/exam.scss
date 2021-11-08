@@ -117,7 +117,25 @@
     }
   }
   .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+    background-image: url("./img/img.jpg");
+    background-size: cover;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 20px;
+    color: #234d4f;
+    span {
+      padding: 15px;
+    }
     .belekas {
+      padding: 15px;
     }
   }
   button {

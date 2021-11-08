@@ -35,7 +35,7 @@ function ExamModal({ showModal, hide, modalElement, edit, remove }) {
 
 
     return (
-        <div className='modal' style={{ display: showModal ? 'flex' : 'none', top: window.scrollY + 200 + 'px' }}>
+        <div className='modal' style={{ display: showModal ? 'flex' : 'none', top: window.scrollY + 600 + 'px' }}>
             <div className='nauja'>
                 <div className='nauja-vel'>
                     <span>Edit name: </span> <input type="text" value={inputs.name} onChange={(e) => control(e, 'name')} />

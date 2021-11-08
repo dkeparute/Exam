@@ -26,15 +26,15 @@ function ExamNew({ create }) {
 
     return (
         <div className='inputs-turtas'>
-            <h2>Add new items</h2>
+            <h2>Add new items: </h2>
             <div className='inputs'>
-                <span>New name: </span> <input type="text" value={inputs.name} onChange={(e) => control(e, 'name')} />
+                <span>New name: </span> <input type="text" value={inputs.name} onChange={(e) => control(e, 'name')} placeholder="insert name" />
             </div>
             <div className='inputs'>
-                <span>New type: </span> <input type="text" value={inputs.type} onChange={(e) => control(e, 'type')} />
+                <span>New type: </span> <input type="text" value={inputs.type} onChange={(e) => control(e, 'type')} placeholder="insert type" />
             </div>
             <div className='inputs'>
-                <span>New weight: </span> <input type="text" value={inputs.weight} onChange={(e) => control(e, 'weight')} />
+                <span>New weight: </span> <input type="text" value={inputs.weight} onChange={(e) => control(e, 'weight')} placeholder="insert weight" />
             </div>
             <div className='inputs'>
                 <span>New born: </span> <input type="date" value={inputs.born} onChange={(e) => control(e, 'born')} />

@@ -21,7 +21,7 @@ function App() {
   const [filterBy, setFilterBy] = useState('');
   const [searchBy, setSearchBy] = useState('');
   // const [sortBy, setSortBy] = useState(' ');
-  
+
   const sortBy = useRef('');
 
   // veikiantis sortas
@@ -99,10 +99,11 @@ function App() {
   }
   return (
     <div className='turtai'>
+      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+
     </div>
   );
 }

@@ -1,157 +1,210 @@
 .turtai {
+  // turinio isdestymas
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-top: 100px;
+
+  // saraso isdestymas
+  .turtai-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    align-content: space-between;
+    padding: 50px;
+  }
+  // saraso fonas ir raides
+  .vienas-turtas {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("./img/img.jpg");
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 20px;
+    color: #234d4f;
+    text-align: center;
+    font-weight: bold;
+    // viduje esancios raides
+    .naujas-turtas {
+      color: #234d4f;
+    }
+    // viduje esancios raides
+    span {
+      color: #a55a86;
+      font-weight: bold;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+  }
+  // add new lentele
+  .inputs-turtas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     justify-items: center;
+    align-items: center;
     flex-wrap: wrap;
-    border-radius: 10px;
-    background-color: #eac8d3;
-    margin: 100px;
-    .turtai-list {
-        display: flex;
-        justify-content: center;
-        justify-items: center;
-        flex-wrap: wrap;
-        h2 {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            color: #a55a86;
-        }
+    align-content: space-between;
+    background-image: url("./img/img.jpg");
+    background-size: cover;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 20px;
+    color: #234d4f;
+    h2 {
+      display: flex;
+      justify-content: center;
     }
-    .vienas-turtas {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-        padding: 10px;
-        border: 3px solid #eac8d3;
-        background-color: #575151;
-        border-radius: 10px;
-        margin: 20px;
-        width: 100%;
-        max-width: 200px;
-        min-width: 140px;
-        .naujas-turtas {
-            color: #fff;
-            font-style: italic;
-            text-align: center;
-            font-weight: bold;
-            margin: 5px;
-            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
-                sans-serif;
-        }
+    .inputs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    span {
+      color: #a55a86;
+      padding: 15px;
+    }
+  }
+  // modalo fonas
+  .modal {
+    position: absolute;
+    background-image: url(./img/img3.jpg);
+    background-size: cover;
+    border-radius: 50px;
+    width: 55vw;
+    height: 200px;
+    // modalo mygtukai
+    .btn {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      flex-basis: auto;
+    }
+    // modalo viduriai
+    .nauja {
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+      padding: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      background-repeat: no-repeat;
+      background-size: cover;
 
+      .nauja-vel {
+        margin-top: 10px;
+        margin-bottom: 30px;
         span {
-            font-size: 15px;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: bold;
-            color: #eac8d3;
+          padding: 10px;
+          color: white;
         }
+      }
     }
-    .inputs-turtas {
-        margin: 30px;
-        display: flex;
-        justify-content: center;
-        justify-items: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-        padding: 20px;
-        background-color: #575151;
-        border: 3px solid #575151;
-        border-radius: 10px;
-        text-transform: uppercase;
-        font-weight: bold;
-        background-image: url("./img/img.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        h2 {
-            color: #a55a86;
-        }
-        .inputs {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-bottom: 30px;
-        }
-        input {
-            border-radius: 10px;
-        }
-        span {
-            color: #eac8d3;
-        }
+  }
+  .nav {
+    .belekas {
     }
-    button {
-        display: block;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.75em;
-        letter-spacing: 1px;
-        height: 38px;
-        width: 120px;
-        line-height: 38px;
-        overflow: hidden;
-        background: #a55a86;
-        border-radius: 20px;
-        box-shadow: 0 15px 30px rgba(black, 0.1);
-        border: 0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin: 7px;
-        color: #fff;
-        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
-            sans-serif;
-    }
-    .modal {
-        position: absolute;
-        background-image: url("./img/img2.jpg");
-        background-size: cover;
-        border-radius: 10px;
-        left: 30vw;
-        width: 45vw;
-        height: 600px;
-
-        .btn {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            flex-basis: auto;
-        }
-        .nauja {
-            display: flex;
-            justify-content: center;
-            justify-items: center;
-            flex-wrap: wrap;
-            flex-direction: column;
-            padding: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            background-repeat: no-repeat;
-            background-size: cover;
-            .nauja-vel {
-                margin-top: 10px;
-                margin-bottom: 30px;
-                .inputs {
-                    margin-top: 10px;
-                    margin-bottom: 30px;
-                }
-                input {
-                    border-radius: 10px;
-                }
-                span {
-                    color: #eac8d3;
-                }
-            }
-        }
-    }
-    .nav {
-        padding: 10px;
-        margin: 10px;
-        .belekas {
-            margin-top: 10px;
-        }
-    }
+  }
+  button {
+    display: block;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+    height: 38px;
+    width: 120px;
+    line-height: 38px;
+    overflow: hidden;
+    background-color: #a55a86;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(black, 0.1);
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 7px;
+    color: #fff;
+  }
 }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .turtai-list,
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .turtai-list,
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .turtai-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .turtai-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+}
+
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {
+//   .turtai-list {
+//     background: pink;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     justify-items: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     align-content: space-between;
+//   }
+// }

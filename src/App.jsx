@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ExamList from "./Components/ExamList";
 import ExamModal from "./Components/ExamModal";
 import ExamNav from "./Components/ExamNav";
@@ -20,13 +20,14 @@ function App() {
   const [types, setTypes] = useState([]);
   const [filterBy, setFilterBy] = useState('');
   const [searchBy, setSearchBy] = useState('');
-  const [sortBy, setSortBy] = useState(' ');
-
+  // const [sortBy, setSortBy] = useState(' ');
+  
+  const sortBy = useRef('');
 
   // veikiantis sortas
   const sort = (by) => {
     setExamList(examSort(examList, by))
-    setSortBy(by);
+    sortBy.current = by;
   }
 
   useEffect(() => {
@@ -58,10 +59,11 @@ function App() {
   const reset = () => {
     setLastUpdate(Date.now());
   }
+  // veikiantis sortas
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
       .then(res => {
-        setExamList(examSort((res.data), sortBy));
+        setExamList(examSort((res.data), sortBy.current));
       })
   }, [lastUpdate])
 

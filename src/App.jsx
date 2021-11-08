@@ -20,13 +20,14 @@ function App() {
   const [types, setTypes] = useState([]);
   const [filterBy, setFilterBy] = useState('');
   const [searchBy, setSearchBy] = useState('');
-  const [sort, setSort] = useState(' ');
+  const [sortBy, setSortBy] = useState(' ');
 
-  useEffect(() => {
-    if (sort) {
-        setExamList(examSort(examList, sort));
-    }
-}, [sort])
+
+  // veikiantis sortas
+  const sort = (by) => {
+    setExamList(examSort(examList, by))
+    setSortBy(by);
+  }
 
   useEffect(() => {
     if (searchBy) {
@@ -60,10 +61,10 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:3003/exam')
       .then(res => {
-        setExamList(res.data);
-        console.log(res.data);
+        setExamList(examSort((res.data), sortBy));
       })
   }, [lastUpdate])
+
   const create = examElement => {
     axios.post('http://localhost:3003/exam', examElement)
       .then(res => {
@@ -99,7 +100,7 @@ function App() {
       <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-      <ExamNav sort={setSort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
     </div>
   );
 }

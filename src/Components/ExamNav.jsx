@@ -9,8 +9,8 @@ function ExamNav({ types, filter, reset, search, sort}) {
     const selectSort = e => {
         setSortValue(e.target.value);
         sort(e.target.value);
+        
     }
-
 
     const selectFilter = e => {
         setFilterValue(e.target.value);

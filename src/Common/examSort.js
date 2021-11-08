@@ -1,11 +1,11 @@
 function examSort(state, by) {
-    const copy = state.slice();
+    const examList = state.slice();
 
     switch (by) {
         case 'name_asc':
-            copy.sort(function (a, b) {
-                var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-                var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            examList.sort(function (a, b) {
+                const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+                const nameB = b.name.toUpperCase(); // ignore upper and lowercase
                 if (nameA < nameB) {
                     return -1;
                 }
@@ -17,9 +17,9 @@ function examSort(state, by) {
             });
             break;
         case 'name_desc':
-            copy.sort(function (a, b) {
-                var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-                var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            examList.sort((a, b) => {
+                const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+                const nameB = b.name.toUpperCase(); // ignore upper and lowercase
                 if (nameA < nameB) {
                     return 1;
                 }
@@ -31,17 +31,17 @@ function examSort(state, by) {
             });
             break;
         case 'weight_asc':
-            copy.sort(function (a, b) {
+            examList.sort((a, b) => {
                 return a.weight - b.weight;
             });
             break;
         case 'weight_desc':
-            copy.sort(function (a, b) {
+            examList.sort((a, b) => {
                 return b.weight - a.weight;
             });
             break;
         default:
     }
-    return copy;
+    return examList;
 }
 export default examSort;

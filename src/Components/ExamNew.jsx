@@ -39,7 +39,7 @@ function ExamNew({ create }) {
             <div className='inputs'>
                 <span>New born: </span> <input type="date" value={inputs.born} onChange={(e) => control(e, 'born')} />
             </div>
-            <button onClick={handleCreate}>Add</button>
+            <button onClick={handleCreate}>Add new</button>
         </div>
     );
 }

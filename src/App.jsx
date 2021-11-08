@@ -34,7 +34,7 @@ function App() {
     if (searchBy) {
       axios.get('http://localhost:3003/exam-name/?s=' + searchBy)
         .then(res => {
-          setExamList(res.data);
+          setExamList(examSort((res.data), sortBy.current));
           console.log(res.data);
         })
     }
@@ -44,7 +44,7 @@ function App() {
     if (filterBy) {
       axios.get('http://localhost:3003/exam-filter/' + filterBy)
         .then(res => {
-          setExamList(res.data);
+          setExamList(examSort((res.data), sortBy.current));
           console.log(res.data);
         })
     }

@@ -44,9 +44,10 @@
   }
   // add new lentele
   .inputs-turtas {
+    background-image: url("./img/img.jpg");
     border: 1px solid #fff;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-items: center;
     align-items: center;
@@ -107,8 +108,10 @@
     }
   }
   .nav {
+    background-image: url("./img/img.jpg");
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     justify-items: center;
     align-items: center;
@@ -124,7 +127,7 @@
       text-transform: uppercase;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       justify-items: center;
       align-items: center;
     }
@@ -139,7 +142,7 @@
   }
   .stats {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     justify-items: center;
     align-items: center;
@@ -149,6 +152,7 @@
     margin: 20px;
     color: #234d4f;
     border: 1px solid #fff;
+    background-image: url("./img/img.jpg");
     .update {
       display: flex;
       flex-direction: row;
@@ -191,6 +195,18 @@
     transition: all 0.3s ease;
     margin: 7px;
     color: #fff;
+  }
+  .message {
+    display: flex;
+    justify-content: flex-start;
+    justify-items: flex-start;
+    align-items: flex-start;
+    transition: all 0.3s;
+    overflow: hidden;
+    span {
+      padding: 5px;
+      margin: 5px;
+    }
   }
 }
 /* Extra small devices (phones, 600px and down) */
@@ -261,6 +277,14 @@
   }
 }
 
-// /* Extra large devices (large laptops and desktops, 1200px and up) */
-// @media only screen and (min-width: 1200px) {
-// }
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .turtai-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

@@ -6,6 +6,7 @@ import ExamNav from "./Components/ExamNav";
 import ExamNew from "./Components/ExamNew";
 import examSort from "./Common/examSort";
 import ExamStats from "./Components/ExamStats";
+import ExamMesg from "./Components/ExamMesg";
 
 function App() {
 
@@ -30,8 +31,19 @@ function App() {
     weight: 0,
     average: 0
   });
-// group statistika
+  // group statistika
   const [groupStats, setGroupStats] = useState([]);
+
+  // zinute
+  const [msg, setMsg] = useState('labas');
+
+  const addMsg = msg => {
+    setMsg(msg);
+  }
+
+  const clearMsg = () => {
+    setMsg();
+  }
 
   useEffect(() => {
     axios.get('http://localhost:3003/stats')
@@ -42,12 +54,12 @@ function App() {
   }, [lastUpdate])
 
   // group by statistika
-  
+
   useEffect(() => {
     axios.get('http://localhost:3003/group-stats')
       .then(res => {
         setGroupStats(res.data)
-           console.log(res);
+        console.log(res);
       })
   }, [lastUpdate])
 
@@ -76,7 +88,7 @@ function App() {
         })
     }
   }, [filterBy])
- 
+
   useEffect(() => {
     axios.get('http://localhost:3003/exam-type')
       .then(res => {
@@ -127,15 +139,12 @@ function App() {
   }
   return (
     <div className='turtai'>
-
-
-      <ExamNew create={create} />
-      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+      <ExamMesg msg={msg}/>
       <ExamStats stats={stats} groupStats={groupStats} />
+      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+      <ExamNew create={create} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
-
-
     </div>
   );
 }

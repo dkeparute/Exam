@@ -4,7 +4,7 @@ function ExamStats({ stats }) {
         <div className='stats'>
             <span>Item count: {stats.count}</span>
             <span>Item weight: {stats.weight} kg</span>
-            <span>Item average: {stats.average}</span>
+            <span>Item average: {stats.average} kg</span>
 
         </div>
     )

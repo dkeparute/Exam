@@ -147,6 +147,21 @@ app.get('/exam-name', (req, res) => {
   })
 })
 
+// bendra statistika
+app.get('/stats', (req, res) => {
+  const sql = `
+  select count(id) as count, sum(weight) as weight, avg(weight) as average
+  from exam
+  `;
+  console.log(req.query.s);
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

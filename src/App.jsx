@@ -29,7 +29,15 @@ function App() {
     count: 0,
     weight: 0,
     average: 0
-  })
+  });
+
+  useEffect(() => {
+    axios.get('http://localhost:3003/stats')
+      .then(res => {
+        setStats(res.data[0]);
+        console.log(res.data);
+      })
+  }, [lastUpdate])
 
   // veikiantis sortas
   const sort = (by) => {
@@ -56,6 +64,7 @@ function App() {
         })
     }
   }, [filterBy])
+ 
   useEffect(() => {
     axios.get('http://localhost:3003/exam-type')
       .then(res => {

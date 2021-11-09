@@ -24,6 +24,12 @@ function App() {
   // const [sortBy, setSortBy] = useState(' ');
 
   const sortBy = useRef('');
+  // statistika
+  const [stats, setStats] = useState({
+    count: 0,
+    weight: 0,
+    average: 0
+  })
 
   // veikiantis sortas
   const sort = (by) => {
@@ -104,7 +110,7 @@ function App() {
 
       <ExamNew create={create} />
       <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
-      <ExamStats />
+      <ExamStats stats={stats} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
 

@@ -29,16 +29,17 @@ function ExamNav({ types, filter, reset, search, sort}) {
         search(e.target.value);
     }
 
+
     return (
         <div className='nav'>
             <span>Filter by type: </span>
-            <select onChange={selectFilter} value={filterValue}>
+            <select className='belekas' onChange={selectFilter} value={filterValue}>
                 {types.map(t => <option key={t.type} value={t.type}>{t.type}</option>)}
                 <option value="">Select </option>
             </select>
-            <div className='belekas'>
+            <div>
                 <span>Sort by: </span>
-                <select onChange={selectSort} value={sortValue} >
+                <select className='belekas' onChange={selectSort} value={sortValue} >
                     <option value="">Select </option>
                     <option value="name_asc">By name ASC </option>
                     <option value="name_desc">By name DESC </option>
@@ -46,9 +47,9 @@ function ExamNav({ types, filter, reset, search, sort}) {
                     <option value="weight_desc">By weight DESC </option>
                 </select>
             </div>
-            <div className='belekas'>
+            <div>
                 <span>Search by name: </span>
-                <input onChange={handleSearchValue} value={searchValue} placeholder="insert text"/>
+                <input className='belekas' onChange={handleSearchValue} value={searchValue} placeholder="insert text"/>
             </div>
             <button onClick={resetHandler}>Reset</button>
         </div>

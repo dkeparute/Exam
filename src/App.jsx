@@ -100,11 +100,14 @@ function App() {
   }
   return (
     <div className='turtai'>
-      <ExamStats />
-      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+
+
       <ExamNew create={create} />
+      <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
+      <ExamStats />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
+
 
     </div>
   );

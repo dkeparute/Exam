@@ -26,7 +26,6 @@ function ExamNew({ create }) {
 
     return (
         <div className='inputs-turtas'>
-            <h2>Add new items: </h2>
             <div className='inputs'>
                 <span>New name: </span> <input type="text" value={inputs.name} onChange={(e) => control(e, 'name')} placeholder="insert name" />
             </div>

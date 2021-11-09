@@ -6,8 +6,7 @@
   justify-items: center;
   align-items: center;
   flex-wrap: wrap;
-  align-content: space-between;
-  margin-top: 100px;
+  margin-top: 50px;
 
   // saraso isdestymas
   .turtai-list {
@@ -15,8 +14,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    align-content: space-between;
-    padding: 50px;
   }
   // saraso fonas ir raides
   .vienas-turtas {
@@ -26,7 +23,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     background-image: url("./img/img.jpg");
-    border-radius: 20px;
     padding: 10px;
     margin: 20px;
     font-size: 20px;
@@ -35,7 +31,7 @@
     font-weight: bold;
     // viduje esancios raides
     .naujas-turtas {
-      color: #234d4f;
+      color: #eff3f3;
     }
     // viduje esancios raides
     span {
@@ -48,31 +44,21 @@
   // add new lentele
   .inputs-turtas {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     justify-items: center;
     align-items: center;
-    flex-wrap: wrap;
-    align-content: space-between;
-    background-image: url("./img/img.jpg");
     background-size: cover;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 20px;
     margin: 20px;
     color: #234d4f;
-    h2 {
-      display: flex;
-      justify-content: center;
-    }
     .inputs {
       display: flex;
       flex-direction: row;
       justify-content: center;
       justify-items: center;
       align-items: center;
-      flex-wrap: wrap;
-      align-content: space-between;
     }
     span {
       color: #a55a86;
@@ -82,16 +68,13 @@
   // modalo fonas
   .modal {
     position: absolute;
-    background-image: url(./img/img3.jpg);
+    background-image: url(./img/img.jpg);
     background-size: cover;
-    border-radius: 50px;
 
     // modalo mygtukai
     .btn {
       display: flex;
-      flex-wrap: wrap;
       flex-direction: row;
-      flex-basis: auto;
     }
     // modalo viduriai
     .nauja {
@@ -104,21 +87,16 @@
       font-weight: bold;
       background-repeat: no-repeat;
       background-size: cover;
-
       .nauja-vel {
         display: flex;
         flex-direction: column;
         justify-content: center;
         justify-items: center;
-        margin-top: 10px;
-        margin-bottom: 30px;
+        margin-top: 5px;
+        margin-bottom: 10px;
         span {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          justify-items: center;
-          padding: 10px;
           color: white;
+          margin-bottom: 5px;
         }
       }
     }
@@ -129,36 +107,65 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
-    flex-wrap: wrap;
-    align-content: space-between;
-    background-image: url("./img/img.jpg");
-    background-size: cover;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 20px;
-    margin: 20px;
-    font-size: 20px;
     color: #234d4f;
     span {
+      padding: 5px;
+      color: #a55a86;
+      font-weight: bold;
+      font-style: italic;
+      text-transform: uppercase;
       display: flex;
       flex-direction: column;
       justify-content: center;
       justify-items: center;
       align-items: center;
-      padding: 15px;
     }
     .belekas {
       display: flex;
       flex-direction: column;
       justify-content: center;
       justify-items: center;
-      padding: 0 10px;
+      align-items: center;
+      margin: 5px;
+    }
+  }
+  .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-size: cover;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px;
+    color: #234d4f;
+    .update {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      background-size: cover;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 20px;
+      color: #234d4f;
+    }
+    span {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      padding: 15px;
     }
   }
   button {
     display: block;
     font-weight: bold;
-    font-style: italic;
     text-transform: uppercase;
     font-size: 0.75em;
     letter-spacing: 1px;
@@ -166,45 +173,13 @@
     width: 120px;
     line-height: 38px;
     overflow: hidden;
-    background-color: #a55a86;
-    border-radius: 20px;
+    background-color: #234d4f;
     box-shadow: 0 15px 30px rgba(black, 0.1);
     border: 0;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 7px;
     color: #fff;
-  }
-  .stats {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: space-between;
-    background-image: url("./img/img.jpg");
-    background-size: cover;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 20px;
-    margin: 20px;
-    color: #234d4f;
-    span {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      justify-items: center;
-      align-items: center;
-      padding: 15px;
-    }
-    .update {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      justify-items: center;
-      padding: 0 10px;
-    }
   }
 }
 /* Extra small devices (phones, 600px and down) */
@@ -213,29 +188,37 @@
   .turtai-list,
   .vienas-turtas,
   .nav,
+  .belekas,
+  .inputs-turtas,
+  .stats.belekas,
   .modal,
-  .inputs-turtas {
+  .btn,
+  .nauja {
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-items: center;
     align-items: center;
     flex-wrap: wrap;
-    align-content: space-between;
+    margin: 10px;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .turtai-list,
-  .nav {
+  .nav,
+  .belekas,
+  .inputs-turtas,
+  .modal,
+  .btn,
+  .nauja {
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-items: center;
     align-items: center;
     flex-wrap: wrap;
-    align-content: space-between;
   }
 }
 
@@ -248,20 +231,19 @@
     justify-items: center;
     align-items: center;
     flex-wrap: wrap;
-    align-content: space-between;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .turtai-list {
+  .turtai-list,
+  .inputs-turtas {
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-items: center;
     align-items: center;
     flex-wrap: wrap;
-    align-content: space-between;
   }
 }
 
@@ -275,6 +257,5 @@
 //     justify-items: center;
 //     align-items: center;
 //     flex-wrap: wrap;
-//     align-content: space-between;
 //   }
 // }

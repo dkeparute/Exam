@@ -35,14 +35,17 @@ function App() {
   const [groupStats, setGroupStats] = useState([]);
 
   // zinute
-  const [msg, setMsg] = useState('labas');
+  const [showMsg, setShowMsg] = useState(false);
+  const msg = useRef('labas');
 
-  const addMsg = msg => {
-    setMsg(msg);
+  const addMsg = text => {
+    msg.current = text;
+    setShowMsg(true);
+    setTimeout(() => {clearMsg()}, 2000);
   }
 
   const clearMsg = () => {
-    setMsg();
+    setShowMsg(false);
   }
 
   useEffect(() => {
@@ -110,6 +113,7 @@ function App() {
   const create = examElement => {
     axios.post('http://localhost:3003/exam', examElement)
       .then(res => {
+        addMsg('Item was added!')
         setLastUpdate(Date.now());
         console.log(res.data);
       })
@@ -139,7 +143,7 @@ function App() {
   }
   return (
     <div className='turtai'>
-      <ExamMesg msg={msg}/>
+      <ExamMesg msg={msg.current} showMsg={showMsg} />
       <ExamStats stats={stats} groupStats={groupStats} />
       <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
       <ExamNew create={create} />

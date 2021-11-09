@@ -17,6 +17,7 @@
   }
   // saraso fonas ir raides
   .vienas-turtas {
+    border: 1px solid #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +44,7 @@
   }
   // add new lentele
   .inputs-turtas {
+    border: 1px solid #fff;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -67,6 +69,7 @@
   }
   // modalo fonas
   .modal {
+    border: 1px solid #fff;
     position: absolute;
     background-image: url(./img/img.jpg);
     background-size: cover;
@@ -82,6 +85,7 @@
       flex-direction: column;
       justify-content: center;
       justify-items: center;
+      align-items: center;
       padding: 20px;
       text-transform: uppercase;
       font-weight: bold;
@@ -92,6 +96,7 @@
         flex-direction: column;
         justify-content: center;
         justify-items: center;
+        align-items: center;
         margin-top: 5px;
         margin-bottom: 10px;
         span {
@@ -110,6 +115,7 @@
     text-transform: uppercase;
     font-weight: bold;
     color: #234d4f;
+    border: 1px solid #fff;
     span {
       padding: 5px;
       color: #a55a86;
@@ -142,6 +148,7 @@
     font-weight: bold;
     margin: 20px;
     color: #234d4f;
+    border: 1px solid #fff;
     .update {
       display: flex;
       flex-direction: row;
@@ -163,7 +170,7 @@
       padding: 15px;
       i {
         padding: 5px;
-        color:#fff;
+        color: #fff;
       }
     }
   }
@@ -194,7 +201,8 @@
   .nav,
   .belekas,
   .inputs-turtas,
-  .stats.belekas,
+  .stats,
+  .belekas,
   .modal,
   .btn,
   .nauja {
@@ -216,7 +224,8 @@
   .inputs-turtas,
   .modal,
   .btn,
-  .nauja {
+  .nauja,
+  .stats {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -228,7 +237,8 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .turtai-list {
+  .turtai-list,
+  .stats {
     display: flex;
     flex-direction: column;
     justify-content: center;

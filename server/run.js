@@ -162,6 +162,23 @@ app.get('/stats', (req, res) => {
   })
 })
 
+// grupine statistika
+app.get('/group-stats', (req, res) => {
+  const sql = `
+  select count(id) as count, type
+  from exam
+  group by type
+  order by type desc
+  `;
+  console.log(req.query.s);
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

@@ -30,12 +30,24 @@ function App() {
     weight: 0,
     average: 0
   });
+// group statistika
+  const [groupStats, setGroupStats] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:3003/stats')
       .then(res => {
         setStats(res.data[0]);
         console.log(res.data);
+      })
+  }, [lastUpdate])
+
+  // group by statistika
+  
+  useEffect(() => {
+    axios.get('http://localhost:3003/group-stats')
+      .then(res => {
+        setGroupStats(res.data)
+           console.log(res);
       })
   }, [lastUpdate])
 
@@ -119,7 +131,7 @@ function App() {
 
       <ExamNew create={create} />
       <ExamNav sort={sort} types={types} filter={setFilterBy} reset={reset} search={setSearchBy} />
-      <ExamStats stats={stats} />
+      <ExamStats stats={stats} groupStats={groupStats} />
       <ExamList examList={examList} modal={modal} />
       <ExamModal showModal={showModal} hide={hide} modalElement={modalElement} edit={edit} remove={remove} />
 
